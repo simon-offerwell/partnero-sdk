@@ -6,7 +6,7 @@ class TransactionAPI(BaseAPI):
         params = {'limit': limit, 'page': page}
         return self.send_request('GET', 'transactions', params=params)
 
-    def create_transaction(self, customer_key: str, transaction_key: str, amount: float, product_id: str, product_type: str, action: str) -> dict:
+    def create_transaction(self, customer_key: str, amount: float, action: str, transaction_key: str = None, product_id: str = None, product_type: str = None) -> dict:
         data = {
             'customer': {'key': customer_key},
             'key': transaction_key,
@@ -19,3 +19,15 @@ class TransactionAPI(BaseAPI):
 
     def delete_transaction(self, transaction_key: str) -> dict:
         return self.send_request('DELETE', f'transactions/{transaction_key}')
+
+
+"""
+{
+    "customer": {
+        "key": "simontest3@offerwell.com"
+    },
+    "key": "transaction_123546",
+    "amount": 19.99,
+    "action": "per-listing"
+}
+"""

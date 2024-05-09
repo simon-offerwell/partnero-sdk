@@ -6,12 +6,12 @@ class PartnerAPI(BaseAPI):
         params = {'limit': limit, 'page': page}
         return self.send_request('GET', 'partners', params=params)
 
-    def create_partner(self, email: str, name: str, password: str, id: str = None, key: str = None) -> dict:
+    def create_partner(self, email: str, name: str, password: str, unique_id: str = None, key: str = None) -> dict:
         data = {
             'email': email,
             'name': name,
             'password': password,
-            'id': id,
+            'id': unique_id,
             'key': key
         }
         return self.send_request('POST', 'partners', data=data)
