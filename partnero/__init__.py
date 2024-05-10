@@ -6,6 +6,18 @@ from .promotion_code_api import PromotionCodeAPI
 from .transaction_api import TransactionAPI
 from .webhook_api import WebhookAPI
 
+
+class Client:
+    def __init__(self, api_key: str):
+        Authentication.configure(api_key=api_key)
+        self.coupon = CouponAPI()
+        self.customer = CustomerAPI()
+        self.partner = PartnerAPI()
+        self.promotion_code = PromotionCodeAPI()
+        self.transaction = TransactionAPI()
+        self.webhook = WebhookAPI()
+
+
 __all__ = [
     "Authentication",
     "CouponAPI",
@@ -13,5 +25,6 @@ __all__ = [
     "PartnerAPI",
     "PromotionCodeAPI",
     "TransactionAPI",
-    "WebhookAPI"
+    "WebhookAPI",
+    "Client"
 ]

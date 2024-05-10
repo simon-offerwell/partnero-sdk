@@ -31,7 +31,7 @@ class CustomerAPI(BaseAPI):
 
     def get_customer(self, email: str = None, customer_key: str = None) -> dict:
         """
-        Search for partners based on provided parameters. Parameters are optional.
+        Search for customer based on provided parameters. Parameters are optional.
         :param email: Email of the customer to search for.
         :param customer_key: ID of the customer to search for.
         """
