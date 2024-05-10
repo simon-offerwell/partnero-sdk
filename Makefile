@@ -1,8 +1,8 @@
 # Define which targets are not files
-.PHONY: all install test
+.PHONY: all install test lint
 
 # Define default make command
-all: install test
+all: install lint test
 
 # Install dependencies
 install:
@@ -11,3 +11,7 @@ install:
 # Run tests with pytest
 test:
 	poetry run pytest
+
+# Run linter with ruff
+lint:
+	poetry run ruff check partnero
