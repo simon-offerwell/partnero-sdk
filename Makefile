@@ -1,12 +1,16 @@
 # Define which targets are not files
-.PHONY: all install test lint
+.PHONY: all install lint test build
 
 # Define default make command
-all: install lint test
+all: install lint test build
 
 # Install dependencies
 install:
 	poetry install
+
+# Build package
+build:
+	poetry build
 
 # Run tests with pytest
 test:
