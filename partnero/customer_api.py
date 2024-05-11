@@ -29,7 +29,7 @@ class CustomerAPI(BaseAPI):
         data = {'partner': {'key': partner_key}, 'key': customer_key, 'email': email, 'name': name}
         return self.send_request('POST', 'customers', data=data)
 
-    def get_partner(self, email: str = None, customer_key: str = None) -> dict:
+    def get_customer(self, email: str = None, customer_key: str = None) -> dict:
         """
         Search for partners based on provided parameters. Parameters are optional.
         :param email: Email of the customer to search for.
