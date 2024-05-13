@@ -13,5 +13,5 @@ __all__ = [
     "PartnerAPI",
     "PromotionCodeAPI",
     "TransactionAPI",
-    "WebhookAPI"
+    "WebhookAPI",
 ]

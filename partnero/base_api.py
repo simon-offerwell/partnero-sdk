@@ -5,6 +5,7 @@ from .authentication import Authentication
 
 class PartneroAPIException(Exception):
     """Custom exception for Partnero SDK errors."""
+
     def __init__(self, status_code, message):
         super().__init__(f"API Error {status_code}: {message}")
         self.status_code = status_code
@@ -21,7 +22,9 @@ class BaseAPI:
         url = f"{self.base_url}{endpoint}"
         headers = self.auth.get_headers()
         try:
-            response = self.session.request(method, url, headers=headers, json=data, params=params)
+            response = self.session.request(
+                method, url, headers=headers, json=data, params=params
+            )
             return self.handle_api_response(response)
         except RequestException as e:
             raise PartneroAPIException(0, f"Network-related error occurred: {str(e)}")
@@ -36,7 +39,7 @@ class BaseAPI:
     def parse_error_response(response: requests.Response) -> str:
         try:
             error_details = response.json()
-            return error_details.get('message', 'An unknown error occurred')
+            return error_details.get("message", "An unknown error occurred")
         except ValueError:
             return response.text
 

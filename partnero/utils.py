@@ -1,5 +1,6 @@
 def validate_email(email):
     import re
+
     if not re.match(r"[^@]+@[^@]+\.[^@]+", email):
         raise ValueError("Provided email is not a valid email address")
 
