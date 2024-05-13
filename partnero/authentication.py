@@ -22,6 +22,6 @@ class Authentication(metaclass=SingletonMeta):
         if not self.api_token:
             raise ValueError("API token has not been set.")
         return {
-            'Authorization': f'Bearer {self.api_token}',
-            'Content-Type': 'application/json'
+            "Authorization": f"Bearer {self.api_token}",
+            "Content-Type": "application/json",
         }

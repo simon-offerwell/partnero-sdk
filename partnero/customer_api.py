@@ -6,9 +6,10 @@ class CustomerAPI(BaseAPI):
     """
     Provides access to customer operations within the Partnero API.
     """
+
     def list_customers(self, limit: int = 15, page: int = 1) -> dict:
-        params = {'limit': limit, 'page': page}
-        return self.send_request('GET', 'customers', params=params)
+        params = {"limit": limit, "page": page}
+        return self.send_request("GET", "customers", params=params)
 
     def create_customer(self, partner_key, customer_key, email, name):
         """
@@ -26,8 +27,13 @@ class CustomerAPI(BaseAPI):
         validate_email(email)
         validate_key(partner_key, "partner_key")
         validate_key(customer_key, "customer_key")
-        data = {'partner': {'key': partner_key}, 'key': customer_key, 'email': email, 'name': name}
-        return self.send_request('POST', 'customers', data=data)
+        data = {
+            "partner": {"key": partner_key},
+            "key": customer_key,
+            "email": email,
+            "name": name,
+        }
+        return self.send_request("POST", "customers", data=data)
 
     def get_customer(self, email: str = None, customer_key: str = None) -> dict:
         """
@@ -35,10 +41,14 @@ class CustomerAPI(BaseAPI):
         :param email: Email of the customer to search for.
         :param customer_key: ID of the customer to search for.
         """
-        params = {k: v for k, v in [('email', email), ('key', customer_key)] if v is not None}
-        return self.send_request('GET', 'customers:search', params=params)
+        params = {
+            k: v for k, v in [("email", email), ("key", customer_key)] if v is not None
+        }
+        return self.send_request("GET", "customers:search", params=params)
 
-    def get_customer_transactions(self, customer_key: str, limit: int = 15, page: int = 1) -> dict:
+    def get_customer_transactions(
+        self, customer_key: str, limit: int = 15, page: int = 1
+    ) -> dict:
         """
         Retrieve transactions associated with a specific customer.
 
@@ -50,12 +60,16 @@ class CustomerAPI(BaseAPI):
         Returns:
             dict: The response from the API containing a list of transactions.
         """
-        params = {'limit': limit, 'page': page}
-        return self.send_request('GET', f'customers/{customer_key}/transactions', params=params)
+        params = {"limit": limit, "page": page}
+        return self.send_request(
+            "GET", f"customers/{customer_key}/transactions", params=params
+        )
 
-    def update_customer(self, customer_key: str, email: str = None, name: str = None) -> dict:
-        data = {k: v for k, v in [('email', email), ('name', name)] if v is not None}
-        return self.send_request('PUT', f'customers/{customer_key}', data=data)
+    def update_customer(
+        self, customer_key: str, email: str = None, name: str = None
+    ) -> dict:
+        data = {k: v for k, v in [("email", email), ("name", name)] if v is not None}
+        return self.send_request("PUT", f"customers/{customer_key}", data=data)
 
     def delete_customer(self, customer_key: str) -> dict:
-        return self.send_request('DELETE', f'customers/{customer_key}')
+        return self.send_request("DELETE", f"customers/{customer_key}")
