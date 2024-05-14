@@ -1,9 +1,17 @@
 [tool.poetry]
 name = "partnero"
-version = "0.2.0"
+version = "0.3.0"
 description = "A Python SDK designed to wrap around the Partnero API."
-authors = ["Your Name <you@example.com>"]
 readme = "README.md"
+license = "MIT"
+
+authors = [
+    "Simon Mahfoud <simon@offerwell.com>",
+]
+
+maintainers = [
+    "James Garcia <james@offerwell.com>",
+]
 
 [tool.poetry.dependencies]
 python = "^3.10"
