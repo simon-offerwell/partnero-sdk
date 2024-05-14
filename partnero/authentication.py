@@ -12,16 +12,16 @@ class SingletonMeta(type):
 
 
 class Authentication(metaclass=SingletonMeta):
-    api_token = None
+    api_key = None
 
     @classmethod
-    def configure(cls, api_token):
-        cls.api_token = api_token
+    def configure(cls, api_key):
+        cls.api_key = api_key
 
     def get_headers(self) -> Dict[str, str]:
-        if not self.api_token:
-            raise ValueError("API token has not been set.")
+        if not self.api_key:
+            raise ValueError("API key has not been set.")
         return {
-            'Authorization': f'Bearer {self.api_token}',
+            'Authorization': f'Bearer {self.api_key}',
             'Content-Type': 'application/json'
         }
