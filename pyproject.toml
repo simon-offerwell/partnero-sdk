@@ -1,16 +1,19 @@
 [tool.poetry]
 name = "partnero"
-version = "0.3.0"
+version = "0.4.0"
 description = "A Python SDK designed to wrap around the Partnero API."
 readme = "README.md"
 license = "MIT"
+
+repository = "https://github.com/simon-offerwell/partnero-sdk"
 
 authors = [
     "Simon Mahfoud <simon@offerwell.com>",
 ]
 
 maintainers = [
-    "James Garcia <james@offerwell.com>",
+"Simon Mahfoud <simon@offerwell.com>",    
+"James Garcia <james@offerwell.com>",
 ]
 
 [tool.poetry.dependencies]
