@@ -19,15 +19,3 @@ class TransactionAPI(BaseAPI):
 
     def delete_transaction(self, transaction_key: str) -> dict:
         return self.send_request('DELETE', f'transactions/{transaction_key}')
-
-
-"""
-{
-    "customer": {
-        "key": "simontest3@offerwell.com"
-    },
-    "key": "transaction_123546",
-    "amount": 19.99,
-    "action": "per-listing"
-}
-"""
