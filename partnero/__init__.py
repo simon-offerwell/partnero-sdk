@@ -1,3 +1,4 @@
+from .base_api import PartneroAPIException
 from .authentication import Authentication
 from .coupon_api import CouponAPI
 from .customer_api import CustomerAPI
@@ -19,5 +20,6 @@ class PartneroClient:
 
 
 __all__ = [
-    "PartneroClient"
+    "PartneroClient",
+    "PartneroAPIException",
 ]
